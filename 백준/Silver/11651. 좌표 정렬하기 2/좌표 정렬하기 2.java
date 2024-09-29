@@ -25,7 +25,7 @@ public class Main {
         for (int[] coordinate : position) {
             int x = coordinate[0];
             int y = coordinate[1];
-            sb.append(String.format("%d %d\n", x, y));
+            sb.append(x).append(" ").append(y).append("\n");
         }
         System.out.println(sb);
     }
