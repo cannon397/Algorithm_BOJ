@@ -8,7 +8,7 @@ public class Main {
     static int M;
     static int N;
     static int[] A;
-    static Set<String> set = new HashSet<>();
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,34 +17,23 @@ public class Main {
         M = Integer.parseInt(number[1]);
         A = new int[N + 1];
         visited = new boolean[N + 1];
-        dfs(0);
-        List<String> list = new ArrayList<>(set);
-        Collections.sort(list);
-        for (String item : list){
-            sb.append(item).append("\n");
-        }
+        dfs(0,1);
         System.out.println(sb);
     }
 
-    static void dfs(int index) {
+    static void dfs(int index, int start) {
         if (index == M) {
-            StringBuilder tempSB = new StringBuilder();
-            int[] tempArray = new int[M];
             for (int i = 0; i < M; i++) {
-                tempArray[i] = A[i];
+                sb.append(A[i]).append(" ");
             }
-            Arrays.sort(tempArray);
-            for (int i = 0; i < M; i++) {
-                tempSB.append(tempArray[i]).append(" ");
-            }
-            set.add(tempSB.toString());
+            sb.append("\n");
             return;
         }
-        for (int i = 1; i <= N; i++) {
+        for (int i = start; i <= N; i++) {
             if (!visited[i]) {
                 visited[i] = true;
                 A[index] = i;
-                dfs(index + 1);
+                dfs(index + 1, i);
                 visited[i] = false;
             }
         }
