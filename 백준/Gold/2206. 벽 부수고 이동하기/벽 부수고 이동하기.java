@@ -19,7 +19,7 @@ public class Main {
         N = mapSize[0];
         M = mapSize[1];
         map = new int[N][M];
-        visited = new boolean[N][M][2];
+        visited = new boolean[2][N][M];
         for (int i = 0; i < N; i++) {
             int[] row = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
             for (int j = 0; j < M; j++) {
@@ -50,18 +50,18 @@ public class Main {
 
 //                System.out.printf("CurrentPosition: (%d,%d) nextPosition: (%d, %d) wall: %d%n", cX, cY, nX, nY, wall);
                 if (map[nX][nY] == 0) { // 벽이 아니면
-                    if (wall == 0 && !visited[nX][nY][0]) { //부신 벽이 여태 없으면
-                        visited[nX][nY][0] = true;
+                    if (wall == 0 && !visited[0][nX][nY]) { //부신 벽이 여태 없으면
+                        visited[0][nX][nY] = true;
                         q.add(new int[]{nX, nY, answer + 1, 0});
-                    } else if (wall == 1 && !visited[nX][nY][1]) { //벽을 부신적이 있으면
-                        visited[nX][nY][1] = true;
+                    } else if (wall == 1 && !visited[1][nX][nY]) { //벽을 부신적이 있으면
+                        visited[1][nX][nY] = true;
                         q.add(new int[]{nX, nY, answer + 1, 1});
                     }
 
                 } else if (map[nX][nY] == 1) {
                     if (wall == 0) {
                         q.add(new int[]{nX, nY, answer + 1, 1});
-                        visited[nX][nY][1] = true;
+                        visited[1][nX][nY] = true;
                     }
                 }
 
