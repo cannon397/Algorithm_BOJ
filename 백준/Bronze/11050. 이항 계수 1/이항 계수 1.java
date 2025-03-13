@@ -8,14 +8,12 @@ public class Main {
         String[] line = br.readLine().split(" ");
         int N = Integer.parseInt(line[0]);
         int K = Integer.parseInt(line[1]);
-        int answer = 1;
-        int mod = 1;
-        for (int i = 0; i < K; i++) {
-            answer *= N - i;
+        System.out.println(factorial(N, K));
+    }
+    static int factorial(int N, int K){
+        if(N == K || K == 0){
+            return 1;
         }
-        for (int i = 0; i < K; i++) {
-            mod *= K - i;
-        }
-        System.out.println(answer / mod);
+        return factorial(N - 1, K - 1) + factorial(N - 1, K);
     }
 }
