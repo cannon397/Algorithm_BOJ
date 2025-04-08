@@ -17,29 +17,31 @@ class Solution {
             String[] route = routes[i].split(" ");
             String direction = route[0];
             int distance = Integer.parseInt(route[1]);
-            int[] tempPos = {startPos[0], startPos[1]};
+            int moveY = startPos[0];
+            int moveX = startPos[1];
             int flag = 0;
             for(int j = 1; j <= distance; j++){
+                switch(direction){
+                    case "N":
+                        moveY--;
+                        break;
+                    case "S":
+                        moveY++;
+                        break;
+                    case "E":
+                        moveX++;
+                        break;
+                    case "W":
+                        moveX--;
+                        break;
+                }
                 
-                if(direction.equals("E") && col > startPos[1] + j && park[startPos[0]].charAt(startPos[1] + j) == 'O'){
-                    tempPos[1]++;
-                    flag++;
-                }
-                if(direction.equals("W") && 0 <= startPos[1] - j && park[startPos[0]].charAt(startPos[1] - j) == 'O'){
-                    tempPos[1]--;
-                    flag++;
-                }
-                if(direction.equals("S") && row > startPos[0] + j && park[startPos[0] + j].charAt(startPos[1]) == 'O'){
-                    tempPos[0]++;
-                    flag++;
-                }
-                if(direction.equals("N") && 0 <= startPos[0] - j && park[startPos[0] - j].charAt(startPos[1]) == 'O'){
-                   tempPos[0]--;
-                    flag++;
-                }
-                if(flag == distance && distance == j){
-                   startPos[0] = tempPos[0];
-                   startPos[1] = tempPos[1];
+                if(moveY >= 0 && moveY < row && moveX >= 0 && moveX < col){
+                    if(park[moveY].charAt(moveX) == 'X') break;
+                    if(distance == j) {
+                        startPos[0] = moveY;
+                        startPos[1] = moveX;
+                    }
                 }
             }
         }
