@@ -7,8 +7,7 @@ class Solution {
                 int temp = Integer.MAX_VALUE;
                 boolean flag = false;
                 for(int k = 0; k < keymap.length; k++){
-                    int l;
-                    for(l = 0; l < keymap[k].length(); l++){
+                    for(int l = 0; l < keymap[k].length(); l++){
                         if(keymap[k].charAt(l) == targets[i].charAt(j)){
                             temp = Math.min(l + 1, temp);
                             break;
