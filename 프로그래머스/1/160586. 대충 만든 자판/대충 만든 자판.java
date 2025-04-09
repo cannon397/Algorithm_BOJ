@@ -22,11 +22,6 @@ class Solution {
                 }
             }
         }
-        for(int i = 0; i < answer.length; i++){
-            if(answer[i] == 0){
-                answer[i] = -1;
-            }
-        }
         return answer;
     }
 }
