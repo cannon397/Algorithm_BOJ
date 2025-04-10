@@ -19,10 +19,7 @@ class Solution {
                 card2q.poll();
                 continue;
             }
-            
-            System.out.println(s);
-            answer = "No";
-            break;
+            return "No";
         }
         return answer;
     }
