@@ -27,12 +27,8 @@ class Solution {
             
             if(!dotFlag && sb.charAt(i) == '.'){
                 dotFlag = true;
-                //sb2.append(sb.charAt(i));
             }else if(dotFlag && sb.charAt(i) != '.'){
                 dotFlag = false;
-                //sb2.append(sb.charAt(i));
-            }else{
-                //sb2.append(sb.charAt(i));
             }
             sb2.append(sb.charAt(i));
         }
