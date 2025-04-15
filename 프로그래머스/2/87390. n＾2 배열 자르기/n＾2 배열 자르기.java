@@ -4,7 +4,6 @@ class Solution {
         int length = (int)(right - left) + 1;
         int[] answer = new int[length];
         long startIndex = left;
-        int[][] index = new int[length][2];
         for(int i = 0; i < length; i++){
             int row = (int)(startIndex / n) + 1;
             int col = (int)(startIndex % n) + 1;
