@@ -14,13 +14,13 @@ class Solution {
                 answer++;
                 mainBelt++;
             }
-            if(order[index] != mainBelt){
-                while(!subBelt.isEmpty() && subBelt.peek() == order[index]){
-                    subBelt.pop();
-                    answer++;
-                    index++;
-                }
+
+            while(!subBelt.isEmpty() && subBelt.peek() == order[index]){
+                subBelt.pop();
+                answer++;
+                index++;
             }
+
         }
         //System.out.println(subBelt);
         return answer;
