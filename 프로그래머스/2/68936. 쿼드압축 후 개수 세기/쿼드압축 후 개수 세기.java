@@ -5,13 +5,8 @@ class Solution {
         int n = arr.length;
         int[][] position = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
         Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{0, 0, n});
 
-        if (n == 1) {
-            answer[arr[0][0]]++;
-            return answer;
-        } else {
-            q.add(new int[]{0, 0, n});
-        }
 
         while (!q.isEmpty()) {
             int[] pos = q.poll();
